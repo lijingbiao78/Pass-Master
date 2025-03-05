@@ -1,0 +1,282 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 500px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+
+.password-box {
+    display: flex;
+    margin-bottom: 1rem;
+    gap: 10px;
+    position: relative;
+}
+
+#password {
+    flex: 1;
+    padding: 10px;
+    font-size: calc(1.1rem - 0.1rem * (var(--length) / 20));
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    background-color: #f8f9fa;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-right: 40px;
+}
+
+#password:hover {
+    position: absolute;
+    width: calc(100% - 100px);
+    z-index: 1000;
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.password-tooltip {
+    display: none;
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    background: #333;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    word-break: break-all;
+    max-width: 100%;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+#password:hover + .password-tooltip {
+    display: block;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.settings {
+    margin: 1.5rem 0;
+}
+
+.setting {
+    margin-bottom: 1rem;
+}
+
+.setting label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+input[type="range"] {
+    width: 100%;
+    margin: 10px 0;
+}
+
+input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+}
+
+.strength-meter {
+    margin-top: 1.5rem;
+}
+
+.strength-bar {
+    height: 10px;
+    background-color: #ddd;
+    border-radius: 5px;
+    margin-top: 8px;
+}
+
+#strength-indicator {
+    height: 100%;
+    width: 0;
+    border-radius: 5px;
+    transition: all 0.3s;
+}
+
+.weak {
+    background-color: #ff4444;
+    width: 33% !important;
+}
+
+.medium {
+    background-color: #ffbb33;
+    width: 66% !important;
+}
+
+.strong {
+    background-color: #00C851;
+    width: 100% !important;
+}
+
+/* 添加密码历史记录样式 */
+.password-history {
+    margin-top: 2rem;
+    border-top: 1px solid #ddd;
+    padding-top: 1rem;
+}
+
+.password-history h3 {
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.add-record {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 1rem;
+}
+
+#password-usage {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.history-list {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.history-item {
+    background: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 12px;
+    margin-bottom: 8px;
+    position: relative;
+}
+
+.history-item .date {
+    font-size: 0.8rem;
+    color: #666;
+}
+
+.history-item .usage {
+    font-weight: bold;
+    margin: 4px 0;
+}
+
+.history-item .password-preview {
+    font-family: monospace;
+    background: #fff;
+    padding: 4px;
+    border-radius: 2px;
+    user-select: all;
+}
+
+.history-item .actions {
+    position: absolute;
+    right: 12px;
+    top: 12px;
+    display: flex;
+    gap: 8px;
+}
+
+.history-item .actions button {
+    padding: 4px 8px;
+    font-size: 0.8rem;
+}
+
+.history-item .delete-btn {
+    background-color: #dc3545;
+}
+
+.history-item .delete-btn:hover {
+    background-color: #c82333;
+}
+
+/* 在现有样式后添加 */
+.auth-form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.auth-form button {
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.auth-form p {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.auth-form a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+.auth-form a:hover {
+    text-decoration: underline;
+}
+
+#generate-btn, #copy-btn {  /* 同时设置两个按钮的样式 */
+    background-color: #FFE4B5; /* 淡黄色 */
+    color: #000; /* 黑色文字 */
+    transition: background-color 0.3s; /* 添加过渡效果 */
+}
+
+#generate-btn:hover, #copy-btn:hover {  /* 两个按钮的悬停效果 */
+    background-color: #FFC000; /* 深黄色 */
+} 

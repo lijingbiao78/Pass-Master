@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>密码生成器</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="user-info">
+            <span id="userEmail"></span>
+            <button id="logoutBtn">退出登录</button>
+        </div>
+        <h1>密码生成器</h1>
+        <div class="password-box">
+            <input type="text" id="password" readonly>
+            <div class="password-tooltip"></div>
+            <button id="copy-btn">复制</button>
+        </div>
+        
+        <div class="settings">
+            <div class="setting">
+                <label>密码长度: <span id="length-val">16</span></label>
+                <input type="range" id="length" min="8" max="64" value="16">
+            </div>
+            
+            <div class="setting">
+                <label>
+                    <input type="checkbox" id="uppercase" checked>
+                    包含大写字母 (A-Z)
+                </label>
+            </div>
+            
+            <div class="setting">
+                <label>
+                    <input type="checkbox" id="lowercase" checked>
+                    包含小写字母 (a-z)
+                </label>
+            </div>
+            
+            <div class="setting">
+                <label>
+                    <input type="checkbox" id="numbers" checked>
+                    包含数字 (0-9)
+                </label>
+            </div>
+            
+            <div class="setting">
+                <label>
+                    <input type="checkbox" id="symbols" checked>
+                    包含特殊符号 (!@#$%^&*)
+                </label>
+            </div>
+        </div>
+        
+        <button id="generate-btn">生成密码</button> 
+        
+        <div class="strength-meter">
+            <p>密码强度: <span id="strength-text">强</span></p>
+            <div class="strength-bar">
+                <div id="strength-indicator"></div>
+            </div>
+        </div>
+        
+        <div class="password-history">
+            <h3>密码历史记录</h3>
+            <div class="add-record" id="save-password-form">
+                <input type="text" id="password-usage" placeholder="请输入密码用途（如：GitHub账号）">
+                <button id="save-btn">保存记录</button>
+            </div>
+            <div class="history-list" id="history-list">
+                <!-- 历史记录将在这里动态显示 -->
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
